@@ -1,59 +1,107 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-</script>
-
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+<div class = buttons>
+  <button class = 'details' id = "nob">Clone</button>
+  <button class = 'details' id = 'delete'>Delete last</button>
+  <button class = 'details' id = 'background'>Change Background</button>
+  <button class = 'details' id = 'writing'>Change title</button>
+</div>
+<div class = "card">
+  <div class = "card-container">
+    <div class = "card-content">
+      <h2>Penn State Blue and White Game</h2>
+      <img align = "center" src = "https://dgiqkglfef83i.cloudfront.net/images/2023/4/15/Blue-White.png" alt = "B+W Game Image">
+      <p>With all hype on the upcoming football season, the Blue and White game gives the fans something to look forward to watching in the spring!</p>
+      <a class = 'details'>
+      <button id = 'details' >Details</button>
+      </a>
+    </div>
+  </div>
+</div>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
+	  .card {
+  display: flex;
+  justify-content: space-evenly;
+}
+.card-container {
+  background-color: #041E42;
+  width: 20%;
+  height: 50%;
+  display: block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
 
-	h1 {
-		width: 100%;
-	}
+img {
+  width: 300px;
+  max-width: 80%;
+  border-radius: 10px;
+}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+.card-content {
+  text-align: center;
+  color: white;
+  display: block;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+.card-content h2 {
+  padding-top: 20px;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.buttons button{
+  margin-bottom: 20px;
+  text-decoration: none;
+  background-color: #ffff;
+  color: #041E42;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.card-content button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  background-color: #ffff;
+  color: #041E42;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.card-content button:active,
+.card-content button:focus,
+.card-content button:hover{
+  background-color: #041E42;
+  color: white;   
+}
+
+.card-content button a{
+  text-decoration: none;
+}
+
+
+@media (max-width: 800px) and (min-width: 500px){
+  .card-content button{
+    display: none;
+  }
+}
+
+@media (max-width: 500px){
+  .card{
+    max-width: 300px;
+  }
+  .card-content button{
+    display: none;
+  }
+}
 </style>
